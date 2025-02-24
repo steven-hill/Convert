@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ViewModel()
+    
     var body: some View {
-        BackgroundView()
+        ZStack {
+            BackgroundView()
+            UnitTypePickerView(viewModel: viewModel)
+        }
     }
 }
 
