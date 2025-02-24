@@ -18,3 +18,7 @@ struct BackgroundView: View {
         .accessibilityIdentifier("Background view")
     }
 }
+
+#Preview {
+    BackgroundView()
+}
