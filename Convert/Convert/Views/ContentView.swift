@@ -13,7 +13,12 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             BackgroundView()
-            UnitTypePickerView(viewModel: viewModel)
+            
+            VStack {
+                UnitTypePickerView(viewModel: viewModel)
+                UnitSelectionView(viewModel: viewModel, selectedIndex: $viewModel.selectedFromUnitIndex, title: "From", units: viewModel.currentUnits)
+                UnitSelectionView(viewModel: viewModel, selectedIndex: $viewModel.selectedToUnitIndex, title: "To", units: viewModel.currentUnits)
+            }
         }
     }
 }
