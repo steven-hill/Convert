@@ -134,4 +134,32 @@ final class ViewModelTests: XCTestCase {
         
         XCTAssertEqual(sut.result, "1,000 ml = 1 l", "Result should be that 1000 milliliters is equal to 1 liter.")
     }
+    
+    func test_changingASelectedUnitIndexAfterAConversion_updatesResultUsingNewlySelectedUnitIndex() {
+        sut.selectedUnitTypeIndex = 0
+        sut.selectedFromUnitIndex = 0
+        sut.selectedToUnitIndex = 1
+        sut.inputAmount = "100"
+        sut.updateResult()
+        XCTAssertEqual(sut.result, "100 au = 1,495,978,707,000,000 cm", "Should be the result of the first conversion: 100 au is equal to 1,495,978,707,000,000 cm.")
+        
+        sut.selectedFromUnitIndex = 8
+        sut.updateResult()
+        
+        XCTAssertEqual(sut.result, "100 mm = 10 cm", "Should be the result of the second conversion: 100 mm is equal to 10 cm.")
+    }
+    
+    func test_changingSelectedUnitTypeIndexAfterAConversion_updatesResultUsingNewlySelectedUnitTypeIndex() {
+        sut.selectedUnitTypeIndex = 2
+        sut.selectedFromUnitIndex = 0
+        sut.selectedToUnitIndex = 1
+        sut.inputAmount = "500"
+        sut.updateResult()
+        XCTAssertEqual(sut.result, "500 g = 0.5 kg", "Should be the result of the first conversion: 500 g = 0.5 kg.")
+        
+        sut.selectedUnitTypeIndex = 1
+        sut.updateResult()
+        
+        XCTAssertEqual(sut.result, "500 hrs = 30,000 min", "Should be the result of the second conversion: 500 hrs = 30,000 min.")
+    }
 }
