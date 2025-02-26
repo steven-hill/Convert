@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct UnitTypePickerView: View {
+    // MARK: - Observed object
     @ObservedObject var viewModel: ViewModel
     
+    // MARK: - Body
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 5) {

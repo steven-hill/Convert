@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    // MARK: - State object
     @StateObject private var viewModel = ViewModel()
     
+    // MARK: - Body
     var body: some View {
         ZStack {
             BackgroundView()
