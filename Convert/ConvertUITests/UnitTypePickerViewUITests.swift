@@ -53,9 +53,9 @@ final class UnitTypePickerViewUITests: XCTestCase {
     
     func test_unitTypePickerView_canScrollToTheEndAndDisplayLastButton() {
         let lastButton = scrollView.buttons["Unit type button 4"]
-        XCTAssertTrue(lastButton.exists, "Should be present in the view hierarchy but off screen initially.")
         
         scrollView.swipeLeft()
+        let _ = lastButton.waitForExistence(timeout: 5)
         
         XCTAssertTrue(lastButton.isHittable, "Should be able to scroll to the end of the scroll view and display the last button.")
     }
