@@ -12,7 +12,7 @@ final class ViewModel: ObservableObject {
     @Published var selectedFromUnitIndex = 0
     @Published var selectedToUnitIndex = 1
     @Published var inputAmount = ""
-    @Published var result = ""
+    @Published var result = "0"
     
     var currentUnits: [Dimension] {
         Conversions().conversions[selectedUnitTypeIndex].units

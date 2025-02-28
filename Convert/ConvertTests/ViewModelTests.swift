@@ -25,7 +25,7 @@ final class ViewModelTests: XCTestCase {
         XCTAssertEqual(sut.selectedFromUnitIndex, 0, "Should be set to 0.")
         XCTAssertEqual(sut.selectedToUnitIndex, 1, "Should be set to 1.")
         XCTAssertEqual(sut.inputAmount, "", "Should be set to an empty string.")
-        XCTAssertEqual(sut.result, "", "Should be set to an empty string.")
+        XCTAssertEqual(sut.result, "0", "Should be set to zero.")
     }
     
     func test_selectedUnitTypeIndex_changesCorrectly() {
