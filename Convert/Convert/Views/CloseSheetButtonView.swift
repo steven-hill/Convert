@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CloseSheetButtonView: View {
     // MARK: - Action
-    var action: () -> Void
+    let action: () -> Void
 
     // MARK: - Body
     var body: some View {
