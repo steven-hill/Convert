@@ -11,8 +11,9 @@ struct ResultView: View {
     // MARK: - State
     @State private var showSheet = false
     
-    // MARK: - Constant
+    // MARK: - Constants
     let result: String
+    let imageSystemName = "rectangle.expand.diagonal"
     
     // MARK: - Body
     var body: some View {
@@ -31,16 +32,9 @@ struct ResultView: View {
                 .accessibilityIdentifier("Result view")
             
             if result.count > 80 {
-                Button(action: {
-                    showSheet.toggle()
-                }) {
-                    Image(systemName: "rectangle.expand.diagonal")
-                        .foregroundColor(.white)
-                        .bold()
-                        .rotationEffect(.init(degrees: 90))
-                }
-                .accessibilityIdentifier("Expand button")
-                .padding([.top, .trailing, .bottom])
+                CustomButtonView(action: { showSheet.toggle() }, imageSystemName: imageSystemName, accessibilityIdentifier: "Expand button", disabled: false)
+                    .rotationEffect(.init(degrees: 90))
+                    .padding([.top, .trailing, .bottom])
             }
         }
         .sheet(isPresented: $showSheet) {

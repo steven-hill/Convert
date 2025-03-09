@@ -35,4 +35,8 @@ final class ViewModel: ObservableObject {
         formatter.unitOptions = .providedUnit
         result = formatter.string(from: inputMeasurement) + " = " + formatter.string(from: output)
     }
+    
+    func switchSelectedUnits() {
+        (selectedFromUnitIndex, selectedToUnitIndex) = (selectedToUnitIndex, selectedFromUnitIndex)
+    }
 }

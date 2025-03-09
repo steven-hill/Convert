@@ -162,4 +162,15 @@ final class ViewModelTests: XCTestCase {
         
         XCTAssertEqual(sut.result, "500 hrs = 30,000 min", "Should be the result of the second conversion: 500 hrs = 30,000 min.")
     }
+    
+    func test_tappingSwitchSelectedUnitsButton_switchesSelectionOfFromAndToUnits() {
+        sut.selectedUnitTypeIndex = 0
+        sut.selectedFromUnitIndex = 0
+        sut.selectedToUnitIndex = 1
+        
+        sut.switchSelectedUnits()
+        
+        XCTAssertEqual(sut.selectedFromUnitIndex, 1, "From unit index should be 1 (the second unit in the list) after switching.")
+        XCTAssertEqual(sut.selectedToUnitIndex, 0, "To unit index should be 0 (the first unit in the list) after switching.")
+    }
 }

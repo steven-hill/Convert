@@ -12,11 +12,13 @@ final class InputViewUITests: XCTestCase {
     private var app: XCUIApplication!
     private var inputField: XCUIElement!
     private var clearButton: XCUIElement!
+    private var switchSelectedUnitsButton: XCUIElement!
     
     override func setUp() {
         app = XCUIApplication()
         inputField = app.textFields["Input amount text field"]
         clearButton = app.buttons["xmark.circle"]
+        switchSelectedUnitsButton = app.buttons["arrow.up.arrow.down"]
         app.launch()
         continueAfterFailure = false
     }
@@ -24,6 +26,7 @@ final class InputViewUITests: XCTestCase {
     override func tearDown() {
         inputField = nil
         clearButton = nil
+        switchSelectedUnitsButton = nil
         app = nil
     }
     
@@ -70,6 +73,10 @@ final class InputViewUITests: XCTestCase {
         clearButton.tap()
         
         XCTAssertEqual(inputField.placeholderValue, "Enter amount", "TextField should clear the amount entered.")
+    }
+    
+    func test_switchSelectedUnitsButtonImageSystemName_isArrowUpArrowDown() {
+        XCTAssertTrue(switchSelectedUnitsButton.exists, "Switch selected units button SF symbol should be \"arrow.up.arrow.down\".")
     }
     
     // MARK: - Helper function

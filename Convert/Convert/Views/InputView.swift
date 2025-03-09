@@ -12,11 +12,13 @@ struct InputView: View {
     // MARK: - Binding
     @Binding var inputAmount: String
     
-    // MARK: - Action
+    // MARK: - Actions
     let convertInput: () -> Void
+    let switchSelectedUnits: () -> Void
     
-    // MARK: - Constant
-    let buttonImageName = "xmark.circle"
+    // MARK: - Constants
+    let clearButtonImageName = "xmark.circle"
+    let switchUnitsButtonImageName = "arrow.up.arrow.down"
     
     // MARK: - Body
     var body: some View {
@@ -37,19 +39,16 @@ struct InputView: View {
                 convertInput()
             }
             
-            Button(action: {
-                inputAmount.removeAll()
-            }) {
-                Image(systemName: buttonImageName)
-                    .foregroundColor(inputAmount.isEmpty ? .gray : .white)
-            }
-            .accessibilityIdentifier(buttonImageName)
-            .padding()
+            CustomButtonView(action: { inputAmount.removeAll() }, imageSystemName: clearButtonImageName, accessibilityIdentifier: clearButtonImageName, disabled: inputAmount.isEmpty)
+                .padding()
+            
+            CustomButtonView(action: { switchSelectedUnits() }, imageSystemName: switchUnitsButtonImageName, accessibilityIdentifier: switchUnitsButtonImageName, disabled: false)
+                .padding(.trailing)
         }
         .padding(.leading)
     }
 }
 
 #Preview {
-    InputView(inputAmount: .constant(""), convertInput: {})
+    InputView(inputAmount: .constant(""), convertInput: {}, switchSelectedUnits: {})
 }
