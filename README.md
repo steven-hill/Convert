@@ -11,3 +11,10 @@
 1. Clone the repo.
 2. Open `Convert.xcodeproj`.
 3. Build and run.
+
+### 📱 Screenshots
+<p align="center">
+  <img src="Screenshots/Launch screen.png" width="300" hspace="20" alt="Launch screen"/>
+  <img src="Screenshots/Change unit.png" width="300" alt="Change unit"/>
+  <img src="Screenshots/Result.png" width="300" hspace="20" alt="Result"/>
+</p>
